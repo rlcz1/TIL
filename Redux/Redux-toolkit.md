@@ -7,6 +7,7 @@
 - reducers는 상태가 변하면 어떻게 실행될지 정한다.
    - state는 설정한 초기값의 value를 가져온다.
    - action에는 playload와 type이 있는데, 변경하고자 하는 데이터를 원하는곳에 넘겨주는 역할을 한다.
+   - 이전에 redux에서는 [...state]와 같이 복사를 하여 불변성을 지켜줘야 했으나, react-toolkit에서는 state.value = action.payload 와 같이 사용한다.
     ```javascript
     import {createSlice} from "@reduxjs/tookit"
 
@@ -51,7 +52,7 @@ export default configureStore({
 
 ```javascript
 import React from "react"
-import {userSelector} from "react-redux"
+import {useSelector} from "react-redux"
 
 const UserProfile = () => {
   const user useSelector((state) => state.user.value);
